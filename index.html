@@ -1,27 +1,84 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <meta content="width=device-width,initial-scale=1,minimal-ui" name="viewport">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic|Material+Icons">
-    <link rel="stylesheet" href="https://unpkg.com/vue-material/dist/vue-material.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/vue-material/dist/theme/default.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/2.0.3/marked.js" integrity="sha512-8RGLzK/eq+SeKjoMXVJOSw109HhjB0DreXCozKDCySc4K9f8PyhDSGuFwyGiifxDHvvuBomkHRJW8CB50islsw==" crossorigin="anonymous"></script>
+    <meta charset="utf-8" />
+    <meta
+      content="width=device-width,initial-scale=1,minimal-ui"
+      name="viewport"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic|Material+Icons"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/vue-material/dist/vue-material.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/vue-material/dist/theme/default.css"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/marked/2.0.3/marked.js"
+      integrity="sha512-8RGLzK/eq+SeKjoMXVJOSw109HhjB0DreXCozKDCySc4K9f8PyhDSGuFwyGiifxDHvvuBomkHRJW8CB50islsw=="
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      * {
+        color: black;
+      }
+      body {
+        min-width: 100vh;
+        min-height: 100vh;
+        background-color: #e0607e;
+      }
+      .box {
+        display: flex;
+        flex-direction: column;
+        margin: 6vh;
+        min-width: 95vh;
+        min-height: 95vh;
+        background-color: #dbd3ad;
+        box-shadow: rgb(85, 91, 255) 0px 0px 0px 3px,
+          rgb(31, 193, 27) 0px 0px 0px 6px, rgb(255, 217, 19) 0px 0px 0px 9px,
+          rgb(255, 156, 85) 0px 0px 0px 12px, rgb(255, 85, 85) 0px 0px 0px 15px;
+      }
+      #app {
+        display: flex;
+      }
+      textarea {
+        min-height: 100vh;
+      }
+    </style>
   </head>
 
   <body>
     <div id="app">
-      <!-- Your code here -->
+      <div class="box">
+        <md-toolbar class="md-medium">
+          <h3 class="md-title">Editor</h3>
+        </md-toolbar>
+        <textarea id="editor" v-model="code"></textarea>
+      </div>
+      <div class="box">
+        <md-toolbar class="md-medium">
+          <h3 class="md-title">Result</h3>
+        </md-toolbar>
+        <div id="preview">{{code}}</div>
+      </div>
     </div>
 
     <script src="https://unpkg.com/vue"></script>
     <script src="https://unpkg.com/vue-material"></script>
     <script>
-      Vue.use(VueMaterial.default)
+      Vue.use(VueMaterial.default);
 
       new Vue({
-        el: '#app'
-      })
+        el: "#app",
+        data: {
+          code: "",
+        },
+      });
     </script>
   </body>
 </html>
